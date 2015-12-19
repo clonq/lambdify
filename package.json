@@ -1,0 +1,33 @@
+{
+  "name": "lambdify",
+  "version": "0.0.1",
+  "description": "aws lambda tool",
+  "repository": "clonq/lambdify",
+  "bin": {
+    "lambdify": "./cli.js"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha -R spec test/*.js"
+  },
+  "dependencies": {
+    "adm-zip": "^0.4.7",
+    "async": "^1.5.0",
+    "colors": "^1.1.2",
+    "commander": "^2.9.0",
+    "debug": "^2.2.0",
+    "underscore": "^1.8.3"
+  },
+  "author": {
+    "name": "Ovi Comes",
+    "email": "ovi.comes@gmail.com"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "mocha": "^2.3.4",
+    "should": "^8.0.2"
+  }
+}

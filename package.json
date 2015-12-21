@@ -1,6 +1,6 @@
 {
   "name": "lambdify",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "aws lambda tool",
   "repository": "clonq/lambdify",
   "bin": {

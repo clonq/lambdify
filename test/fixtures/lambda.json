@@ -1,3 +1,5 @@
 {
+	"app": "test",
+	"src": "test/fixtures/code",
 	"s3bucket": "test-bucket"
 }

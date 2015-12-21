@@ -8,12 +8,13 @@ var util = require('./lib/util');
 
 program
     .version(pkg.version)
+    .option('-c, --config <filename>', 'use config data from <filename>. defaults to ./lambda.json')
     
 program
     .command('push')
     .description('deploys code to aws lambda')
-    .action(function(opts){
-        push(opts);
+    .action(function(){
+        push({config: program.config});
     });
 
 program.parse(process.argv);

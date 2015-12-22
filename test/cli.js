@@ -12,11 +12,7 @@ var TEST_DATA = {
 }
 
 describe('cli tests', function(){
-    after(function(){
-        // if(fs.existsSync(parentDir+lambdaConfig.app+'.zip')) fs.unlinkSync(parentDir+lambdaConfig.app+'.zip');
-    });
     it('should push a component using lambda.json data', function(done){
-        // fs.existsSync(parentDir+lambdaConfig.app+'.zip').should.equal(false);
         exec('node cli push -c '+TEST_DATA.CONFIG_FILENAME, function (err, stdout, stderr) {
             if(stdout) console.log('stdout:', stdout);
             fs.existsSync(parentDir+lambdaConfig.app+'.zip').should.equal(true);

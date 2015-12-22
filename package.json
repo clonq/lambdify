@@ -1,6 +1,6 @@
 {
   "name": "lambdify",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "aws lambda tool",
   "repository": "clonq/lambdify",
   "bin": {
@@ -15,6 +15,7 @@
   "dependencies": {
     "adm-zip": "^0.4.7",
     "async": "^1.5.0",
+    "aws-sdk": "^2.2.25",
     "colors": "^1.1.2",
     "commander": "^2.9.0",
     "debug": "^2.2.0",

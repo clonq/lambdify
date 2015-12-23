@@ -11,7 +11,7 @@ var TEST_DATA = {
 }
 
 describe('s3 tests', function(){
-    it('upload a file to a bucket', function(done){
+    it('should upload a file to a bucket', function(done){
         var opts = { verbose: true, s3: { region: TEST_DATA.REGION } };
         s3.upload(TEST_DATA.BUCKET, TEST_DATA.ZIP_FILENAME, opts, function(err){
             done(err);

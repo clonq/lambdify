@@ -1,8 +1,14 @@
 {
-	"app": "test",
-	"src": "test/fixtures/code",
-	"s3": {
-		"bucket": "lambdify-test",
-		"region": "us-east-1"
-	}
+    "app": "test",
+    "src": "test/fixtures/code",
+    "aws": {
+        "region": "us-east-1"
+    },
+    "s3": {
+        "bucket": "lambdify-test",
+        "key": "test.zip"
+    },
+    "lambda": {
+        "role": "set lambdify_aws_lambda_exec_role to arn:aws:iam::xxxxxxxxxxx:role/role-name"
+    }
 }

@@ -18,7 +18,8 @@ describe('util tests', function(){
     it('should load config data from lambda.json', function(done){
         var config = util.getParams({config: TEST_DATA.CONFIG_FILENAME});
         should.exist(config);
-        config.should.have.property('s3bucket');
+        config.should.have.property('s3');
+        config.s3.should.have.property('bucket');
         done();
     });
 });

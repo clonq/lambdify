@@ -5,6 +5,7 @@ var debug = require('debug')('lambdify');
 var program = require('commander');
 var colors = require('colors');
 var util = require('./lib/util');
+var s3 = require('./lib/s3');
 
 program
     .version(pkg.version)
@@ -23,10 +24,17 @@ function push(opts) {
     opts = util.getParams(opts);
     var srcDir = opts.src || '.';
     var appName = opts.app || 'noname';
+    var s3Bucket = opts.s3.bucket || appName;
     var targetZipFilename = appName+'.zip';
     util.zip(srcDir, targetZipFilename, {ignore:'^[\.]'}, function(err){
         if(err) {
             console.log(err);
+        } else {
+            s3.upload(s3Bucket, targetZipFilename, opts, function(err){
+                if(err) {
+                    console.log(err);
+                }
+            })
         }
     });
 }

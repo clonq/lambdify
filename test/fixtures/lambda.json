@@ -9,6 +9,8 @@
         "key": "test.zip"
     },
     "lambda": {
-        "role": "set lambdify_aws_lambda_exec_role to arn:aws:iam::xxxxxxxxxxx:role/role-name"
+        "role": "set lambdify_aws_lambda_exec_role to arn:aws:iam::xxxxxxxxxxx:role/role-name",
+        "moduleName": "testComponent",
+        "functionName": "lambdifyTestFunction"
     }
 }

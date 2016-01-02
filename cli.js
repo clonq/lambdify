@@ -6,6 +6,7 @@ var program = require('commander');
 var colors = require('colors');
 var util = require('./lib/util');
 var s3 = require('./lib/s3');
+var lambda = require('./lib/lambda');
 
 program
     .version(pkg.version)
@@ -26,6 +27,8 @@ function push(opts) {
     var appName = opts.app || 'noname';
     var s3Bucket = opts.s3.bucket || appName;
     var targetZipFilename = appName+'.zip';
+    var moduleName = opts.lambda.moduleName;
+    var functionName = opts.lambda.functionName;
     util.zip(srcDir, targetZipFilename, {ignore:'^[\.]'}, function(err){
         if(err) {
             console.log(err);
@@ -34,7 +37,13 @@ function push(opts) {
                 if(err) {
                     console.log(err);
                 }
-            })
+                lambda.create(moduleName, functionName, opts, function(err){
+                    util.cleanup(targetZipFilename);
+                    if(err) {
+                        console.log(err);
+                    }
+                })
+            });
         }
     });
 }

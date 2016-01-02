@@ -22,4 +22,12 @@ describe('util tests', function(){
         config.s3.should.have.property('bucket');
         done();
     });
+    it('should remove temporary zip file', function(done){
+        util.zip(TEST_DATA.CODE_DIR, TEST_DATA.ZIP_FILENAME, {ignore:'^[\.]'}, function(err){
+            fs.existsSync(TEST_DATA.ZIP_FILENAME).should.equal(true);
+            util.cleanup(TEST_DATA.ZIP_FILENAME);
+            fs.existsSync(TEST_DATA.ZIP_FILENAME).should.equal(false);
+            done(err);
+        });
+    });
 });
